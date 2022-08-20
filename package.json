@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "cherry-cljs": "latest",
+    "color": "^4.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-jss": "^10.9.2",
+    "react-router-dom": "^6.3.0",
+    "sugar-date": "^2.0.6"
+  },
+  "devDependencies": {
+    "vite": "^3.0.4"
+  }
+}
