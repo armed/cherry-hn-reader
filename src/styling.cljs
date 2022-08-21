@@ -30,34 +30,42 @@
 
 (def use-styles
   (create-styles
-   {"@global" {:body
-               {:color font-color
-                :background-color bg-color
-                :font-size "10pt"
-                :font-family "Verdana, Geneva, sand-serif"}}
+   {"@global" {:html {:scroll-behavior "smooth"}
+               :body
+               {:font-size "10pt"
+                :font-family "Verdana, Geneva, sand-serif"}
+               :p {:margin-bottom "0"}}
 
-    :title {:font-weight "600"
-            :background-color "#ff6600"
-            :padding "10px 5px"
-            :margin-bottom "10px"}
+    :main {:margin "10px 20px 10px 20px"
+           :color font-color
+           :background-color bg-color
+           "& > .header" {:font-weight "600"
+                          :background-color "#ff6600"
+                          :padding "10px 5px"
+                          :margin-bottom "10px"}
+           "& > .items" {:margin "0 10px 0 10px"}}
 
     :underline css-underline
 
     :story-item
-    {:padding "3px"
-     :margin-bottom "5px"
-     "& .story-row" {:display :flex
-                     :align-items :baseline
-                     :flex-direction :row
-                     :flex-wrap :wrap
-                     :align-content :center
-                     :justify-content :flex-start
-                     "& > a" {:margin-right "3px"}
-                     "& > .title" css-a
-                     "& > .info" (merge {:font-size "8pt"
-                                         :color light-color}
-                                        {"& a" css-a-light})
-                     "& .date" {:color light-color}
-                     "& .url"
-                     (merge {:font-size "8pt"}
-                            {"& a" css-a-light})}}}))
+    {:margin-bottom "5px"
+     "& .story-body" {:margin-bottom "20px"}
+     "& .comments" {:display "flex"
+                    :flex-direction "column"
+                    "& .comment" {:margin-top "10px"}
+                    "& .comments" {:margin-left "20px"}}
+     "& .item-row" {:display :flex
+                    :align-items :baseline
+                    :flex-direction :row
+                    :flex-wrap :wrap
+                    :align-content :center
+                    :justify-content :flex-start
+                    "& > a" {:margin-right "3px"}
+                    "& > .title" css-a
+                    "& > .info" (merge {:font-size "8pt"
+                                        :color light-color}
+                                       {"& a" css-a-light})
+                    "& .date" {:color light-color}
+                    "& .url"
+                    (merge {:font-size "8pt"}
+                           {"& a" css-a-light})}}}))
