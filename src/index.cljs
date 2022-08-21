@@ -10,6 +10,8 @@
 
 (Sugar/extend)
 
+(def ^:const BASE_URL import.meta.env.BASE_URL)
+
 (defn App []
   (let [classes (styling/use-styles)]
     #jsx [:div {:className (:main classes)}
@@ -17,8 +19,8 @@
           [:div {:className "items"}
            [BrowserRouter
             [Routes
-             [Route {:path "/" :element #jsx [Stories]}]
-             [Route {:path "/:storyId" :element #jsx [Comments]}]]]]]))
+             [Route {:path BASE_URL :element #jsx [Stories]}]
+             [Route {:path (str BASE_URL ":storyId") :element #jsx [Comments]}]]]]]))
 
 (def container (createRoot (js/document.getElementById "app")))
 

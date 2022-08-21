@@ -24,7 +24,7 @@
         cls (if title
               story-item
               (str story-item " " color-grey))
-        story-link (str "/" id)]
+        story-link (str import.meta.env.BASE_URL id)]
     #jsx [:div {:key id
                 :className cls}
           (if title
