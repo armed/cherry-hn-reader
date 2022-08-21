@@ -16,14 +16,14 @@
 (defn Stories []
   (let [classes (styling/use-styles)
         [top-50 set-top-50] (useState [])
-        [stories dispatch] (useReducer stories-reducer (sorted-map))]
+        [stories dispatch] (useReducer stories-reducer {})]
 
     (fx (let [fetcher (hn/fetcher "/topstories.json")]
           (fetcher (fn [xs] (set-top-50 (take 50 xs))))))
 
     (fx (do (dispatch [:reset (->> top-50
                                    (map (fn [id] {id nil}))
-                                   (into (sorted-map)))])
+                                   (into {}))])
             (doseq [story-id top-50]
               (let [fetcher (hn/item-fetcher story-id)]
                 (fetcher #(dispatch [:story %])))))
